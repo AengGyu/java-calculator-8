@@ -12,27 +12,12 @@ public class Controller {
 
         String input = Console.readLine();
 
-        Set<Character> separators = getSeparators(input);
-        List<Integer> operands = getOperands(input, separators);
+        Set<Character> separators = Parser.parseSeparator(input);
+        List<Integer> operands = Parser.parseOperands(input, separators);
 
         int sum = Calculator.sum(operands);
 
         System.out.println("결과 : " + sum);
     }
 
-    private static Set<Character> getSeparators(String input) {
-        Set<Character> separators = Parser.parseSeparator(input);
-
-        if (separators == null) {
-            return Set.of(',', ':');
-        }
-
-        separators.add(',');
-        separators.add(':');
-        return separators;
-    }
-
-    private static List<Integer> getOperands(String input, Set<Character> separators) {
-        return Parser.parseOperands(input, separators);
-    }
 }
