@@ -26,11 +26,9 @@ public class Controller {
             return Set.of(',', ':');
         }
 
-        else {
-            separators.add(',');
-            separators.add(':');
-            return separators;
-        }
+        separators.add(',');
+        separators.add(':');
+        return separators;
     }
 
     private static List<Integer> getOperands(String input, Set<Character> separators) {
